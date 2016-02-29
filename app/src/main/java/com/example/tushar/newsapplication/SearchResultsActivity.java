@@ -45,7 +45,7 @@ public class SearchResultsActivity extends AppCompatActivity {
         mSearchAdapter = new NewHeadlinesAdapter(mySearchList);
         mRecyclerView.setAdapter(mSearchAdapter);
 
-        ((NewHeadlinesAdapter) mSearchAdapter).setOnItemClickListener(new NewHeadlinesAdapter.CustomClickListener() {
+        ((NewHeadlinesAdapter)mSearchAdapter).setOnItemClickListener(new NewHeadlinesAdapter.CustomClickListener() {
             @Override
             public void onItemClick(int position, View v) {
                 String URL=mySearchList.get(position).getHref();

@@ -55,17 +55,6 @@ public class NewHeadlineActivity extends AppCompatActivity {
             finish();
             return;
         }
-        mAdapter = new NewHeadlinesAdapter(mHeadlines);
-        mRecyclerView.setAdapter(mAdapter);
-        ((NewHeadlinesAdapter)mAdapter).setOnItemClickListener(new NewHeadlinesAdapter.CustomClickListener() {
-            @Override
-            public void onItemClick(int position, View v) {
-                String URL=mHeadlines.get(position).getHref();
-                URL=URL.replaceAll("\n","");
-                URL=URL.replaceAll(" ","");
-                startIntent(URL);
-            }
-        });
 
 
     }
@@ -200,6 +189,18 @@ public class NewHeadlineActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        mAdapter = new NewHeadlinesAdapter(mHeadlines);
+        mRecyclerView.setAdapter(mAdapter);
+        ((NewHeadlinesAdapter)mAdapter).setOnItemClickListener(new NewHeadlinesAdapter.CustomClickListener() {
+            @Override
+            public void onItemClick(int position, View v) {
+                String URL=mHeadlines.get(position).getHref();
+                URL=URL.replaceAll("\n","");
+                URL=URL.replaceAll(" ","");
+                startIntent(URL);
+            }
+        });
+
 
     }
 
